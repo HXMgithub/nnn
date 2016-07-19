@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,
+minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">	
+		<title>登录</title>
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth/20+'px';
+	</script>
+	<script src="js/zepto.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" href="css/login.css" />
+	</head>
+	<body>
+		<header>
+			开心摇摇用户登录
+		</header>
+		<div class="login">
+			<input id="userName" type="text" placeholder="请输入账户">
+			<input id="pass" type="password" placeholder="请输入密码">
+		</div>
+		<div class="select">
+			<p>
+				<input class="checkbox" type="checkbox"><i>显示密码</i>
+				<a href="#">忘记密码?</a>
+			</p>
+			<p>
+				<input class="checkbox" type="checkbox" checked="checked"><i>记住密码自动登录</i>
+			</p>
+		</div>
+		<div class="btn">
+			<button id="login">登录</button>
+			<a href="register.html"><button>注册</button></a>
+		</div>
+	<script>
+		$("#login").click(function(){
+			var userName =  $("#userName").val();
+			var pass = $("#pass").val();
+			$.ajax({
+				   type: "get",
+				   url: "http://datainfo.duapp.com/shopdata/userinfo.php",
+				   data: {status:'login','userID':userName,'password':pass},
+				   success: function(msg){
+					  if(msg == 0){
+					  	alert("用户不存在");
+					  }else if(msg == 2){
+					  	alert("用户名密码不符");
+					  }else{
+					  	alert(msg);
+					  }
+  			 	}
+				});	
+		});
+	</script>	
+	</body>
+</html>

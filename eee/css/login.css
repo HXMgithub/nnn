@@ -1,0 +1,66 @@
+body{
+	background: #f3eff0;
+}
+.login{
+	padding: 1.875rem 0.9375rem;
+}
+.login input{
+	width:18.02rem;
+	height:2.75rem;
+	margin-top: 2px;
+	color: #b4b4b4;
+	font-size: 0.875rem;
+	line-height: 2.75rem;
+	border-radius: 4px;
+	border: 0;
+	outline: none;
+}
+.select{
+	padding-left: 1.5625rem;
+	padding-top: 0.6875rem;
+	margin-bottom: 1.625rem;
+}
+.checkbox{
+	width:1.25rem;
+	height: 1.25rem;
+	color: #8bda1f;
+	vertical-align: middle;
+	margin-top: 0;
+}
+.select p{
+	position: relative;
+}
+
+.select p a{
+	position: absolute;
+	color:#ff1054;
+	left: 6.4375rem;
+	top:2px;
+}
+.select p:nth-of-type(2){
+	margin-top: 1.625rem;
+}
+
+.select p i{
+	margin-left: 6px;
+	position: absolute;
+	top:2px;
+}
+.btn{
+	text-align: center;
+}
+
+.btn  button{
+	width:18.125rem;
+	height:2.75rem;
+	background: #b80606;
+	color: #fff;
+	font-size: 1.125rem;
+	border: 0;
+	border-radius: 4px;
+	letter-spacing: 5px;
+}
+.btn a button{
+	background:#434343 ;
+	margin-top: 0.5rem;
+}

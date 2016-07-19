@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,
+minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">	
+		<title>注册</title>
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth/20+'px';
+	</script>
+	<script src="js/zepto.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" href="css/register.css" />
+	</head>
+	<body>
+		<header>
+			用户注册
+		</header>
+		<div class="register">
+			<form id="submit">
+			<p><span>账户名称:</span><input id="input" type="text" placeholder="请输入账户"></p>
+			<p><span>登录密码:</span><input id="pass" type="password" placeholder="请输入密码"></p>
+			<p><span>确认密码:</span><input id="checkPass" type="password" placeholder="请确认密码"></p>
+			</form>
+		</div>
+		<div class="btn">
+			<button id="btn">确定注册</button>
+		</div>
+		<script>
+			var userName,passWord,checkPass;
+			$("#input").blur(function(){
+				userName = $(this).val();
+				var reg = /^[a-zA-Z\d]\w{3,11}[a-zA-Z\d]$/;
+				if(reg.test(userName)==0){
+					alert("请输入正确的账号");
+				}
+			});
+			$("#pass").blur(function(){
+				passWord = $(this).val();
+				var reg =/^[A-Za-z]+[0-9]+[A-Za-z0-9]*|[0-9]+[A-Za-z]+[A-Za-z0-9]*$/g;
+				if(reg.test(passWord)==0)
+				{
+					alert("请输入正确的密码");
+				}
+			});
+			$("#checkPass").blur(function(){
+				checkPass = $(this).val();
+				if(passWord !=checkPass){
+					alert("两次密码不一致");
+				}
+			});
+			$("#btn").click(function(){
+				$.ajax({
+				   type: "post",
+				   url: "http://datainfo.duapp.com/shopdata/userinfo.php",
+				   data: {status:'register','userID':userName,'password':checkPass},
+				   success: function(msg){
+				   	console.log(1)
+				   if(msg==1){
+				   		alert("注册成功");
+				   		window.location.href = "login.html";
+				   }
+  			 		}
+				});
+			});
+		</script>
+	</body>
+</html>
